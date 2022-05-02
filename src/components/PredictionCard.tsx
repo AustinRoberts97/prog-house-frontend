@@ -8,8 +8,16 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box'
 import { RadioGroup, FormControl, FormControlLabel, Radio  } from "@mui/material";
 
-export default function PredictionCard(props) {
-    let {question, options} = props;
+interface PredictionProps {
+    question: string;
+    options: string[];
+}
+
+export default function PredictionCard(props: PredictionProps) {
+    let {question, options} = props
+
+    let optionButtons = options.map(option => 
+        <FormControlLabel value={option} control={<Radio />} label={option} />)
 
     return (
         <div>
@@ -21,9 +29,7 @@ export default function PredictionCard(props) {
                     <RadioGroup
                         name="radio-buttons-group"
                     >
-                        {options.map(option => 
-                            <FormControlLabel value={option} control={<Radio />} label={option} />)
-                            }
+                        {optionButtons}
                     </RadioGroup>
                     </FormControl>
                 </CardContent>
