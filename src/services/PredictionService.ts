@@ -7,8 +7,7 @@ export function getAllPredictions() {
                 'never too green',
                 'not very green',
                 'im colorblind'
-            ],
-            votes: 0
+            ]
         },
         {
             id: 2,
@@ -17,8 +16,7 @@ export function getAllPredictions() {
                 'paladin',
                 'paladin again',
                 'anything else (why would you pick this)'
-            ],
-            votes: 0
+            ]
         },
         {
             id: 3,
@@ -28,12 +26,7 @@ export function getAllPredictions() {
                 'spiders',
                 'snakes',
                 'gritty'
-            ],
-            votes: 0
+            ]
         }
     ]
-}
-
-export function incrementVoteCount(predictionId: number) {
-
 }
