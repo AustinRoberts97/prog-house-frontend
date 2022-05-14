@@ -1,32 +1,20 @@
-export function getAllPredictions() {
-    return [
-        {
-            id: 1,
-            question: 'How green can a green screen be',
-            options: [
-                'never too green',
-                'not very green',
-                'im colorblind'
-            ]
-        },
-        {
-            id: 2,
-            question: 'best WoW class',
-            options: [
-                'paladin',
-                'paladin again',
-                'anything else (why would you pick this)'
-            ]
-        },
-        {
-            id: 3,
-            question: 'biggest fear',
-            options: [
-                'needles',
-                'spiders',
-                'snakes',
-                'gritty'
-            ]
-        }
-    ]
+import axios from "axios";
+const axios_instance = axios.create({
+    baseURL: 'http://localhost:8080/',
+    timeout: 1000,
+  });
+
+export function getPrediction(predictionId: any) {
+    // Get prediction using axios
+    return axios_instance.get("prediction/" + predictionId)
+}
+
+export function votePrediction(optionId: any) {
+    axios_instance.put("vote", {
+        "option": optionId
+    })
+}
+
+export function CreatePredictionCall(predictionData: any) {
+    return axios_instance.post("prediction/", predictionData)
 }
